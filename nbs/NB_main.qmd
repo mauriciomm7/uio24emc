@@ -15,8 +15,28 @@ execute:
 html-math-method: mathjax
 ---
 
+# NB1: Notebook created for scraping all the applications text from the ECJ
 
-## Environment and Settings 
+**Output:** Clean dataset with the following variables. 
+
+- [ ] `decision_date`: application date. 
+- [ ] `referral_date `: date when the reference for preliminary referenc was sent. 
+- [ ] `referring_court_name`: ???
+- [ ] `ms_origin`: ???
+- [ ] `num_applications`: def() construct from using `iuropa_all_cases_id` same for all apps.
+- [ ] `full_text`: Full applications text that can be paresed into paragraphs and citations.
+- [ ] `par_location`:
+- [ ] `par_location_text`: 
+- [ ] `cited_celex`:
+- [ ] `cited_locations`:
+- [ ] `cited_iuropa_id`: Code created using the constructor `A000P000L000`
+- [ ] `num_questions`: def(max(par_locations)) unique for each app.
+- [ ] `firts_referral`: def (sort_by(decision_date)) create bool flag.
+
+**Output**: Create script that scrapes updates
+
+## Environment and Settings Python
+
 ```{python}
 # Required Libraries 
 import os 
@@ -31,14 +51,12 @@ import paths
 paths.figures_dir
 ```
 
-
 ```{python}
 
 
 # def cool_function(x):
 
 ```
-
 
 ```{python}
 # # Specify the file path
@@ -54,5 +72,17 @@ paths.figures_dir
 # links = soup.select("table tr th a[href]")
 # link_urls = [link['href'] for link in links]
 
+
+```
+
+## Environment and Settings R
+
+```{r}
+
+```
+
+### DAG Diagram
+
+```{r}
 
 ```
