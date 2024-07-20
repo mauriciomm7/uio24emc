@@ -34,7 +34,7 @@ html-math-method: mathjax
 - [ ] `firts_referral`: def (sort_by(decision_date)) create bool flag.
 
 **Output**: Create script that scrapes updates
-
+  
 ## Environment and Settings Python
 
 ```{python}
