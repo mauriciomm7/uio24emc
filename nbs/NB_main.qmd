@@ -34,7 +34,7 @@ html-math-method: mathjax
 - [ ] `firts_referral`: def (sort_by(decision_date)) create bool flag.
 
 **Output**: Create script that scrapes updates
-  
+
 ## Environment and Settings Python
 
 ```{python}
@@ -52,8 +52,6 @@ paths.figures_dir
 ```
 
 ```{python}
-
-
 # def cool_function(x):
 
 ```
@@ -78,11 +76,43 @@ paths.figures_dir
 ## Environment and Settings R
 
 ```{r}
+# LOAD Required libraries 
+library(tidyr)
+library(dplyr)
+library(iuropa)
+```
+
+
+```{r}
+#LOAD IUROPA DATA
+session <- authenticate(
+  username = "mmanriquez",
+  password = "Xof6uf3STix2") # <- Create Session
+
+check_authentication(session) # <- Check authentication
+describe_components() # <- Describe Components IUROPA platform
 
 ```
+
+```{r}
+
+describe_tables(
+  session=session,
+  component = "cjeu_text_corpus") # <- Describe Tables in Component
+
+describe_variables(
+  session = session,
+  component = "cjeu_text_corpus",
+  table = "default")  #<- Describe Variables in Table 
+```
+
+
+
 
 ### DAG Diagram
 
 ```{r}
+
+
 
 ```
