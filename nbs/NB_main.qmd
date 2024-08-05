@@ -2,7 +2,7 @@
 title: "Lawmaking Coordination? Explaining Referral Failure in Federated Judicial Systems"
 author: "Mauricio M. M."
 date: 2024.07.17
-description: This document was created for documentation puproses so that the user has an intuitive understanding of how do the principles of coding in R relate to those in Python.
+description: This file documents the pipeline process from raw data into unit of analysis and unit of observation for the paper Lawmaking Coordination? Explaining Referral Failure in Federated Judicial Systems. This details the data collection and data aggregation process into units of analysis and units of observation. This is a draft document.
 format: 
   html:
     theme: journal
@@ -17,7 +17,7 @@ html-math-method: mathjax
 
 # NB1: Notebook created for scraping all the applications text from the ECJ
 
-**Output:** Clean dataset with the following variables. 
+ **Output:** Clean dataset with the following variables. 
 
 - [ ] `decision_date`: application date. 
 - [ ] `referral_date `: date when the reference for preliminary referenc was sent. 
@@ -42,6 +42,13 @@ html-math-method: mathjax
 import os 
 import sys
 from bs4 import BeautifulSoup
+import numpy as np
+import pandas as pd
+import altair as alt
+import pyarrow.parquet as pq
+from sklearn.feature_extraction.text import TfidfVectorizer 
+from sklearn.metrics.pairwise import cosine_similarity
+
 # Add project paths for for easier access across whole project
 #paths_script_path = "C:\\Users\\mauricmm\\iCloudDrive\\cloudgit\\uio24emc\\"
 parent_dir = os.path.dirname(os.getcwd(),) +"\\"
@@ -95,7 +102,6 @@ describe_components() # <- Describe Components IUROPA platform
 ```
 
 ```{r}
-
 describe_tables(
   session=session,
   component = "cjeu_text_corpus") # <- Describe Tables in Component

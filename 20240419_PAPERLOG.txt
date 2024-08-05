@@ -2,7 +2,6 @@
 2024.04.19 
 __ __ __ 
 
-
 <<VARIABLES>>
 - $source: Name of the athoriative legal source.
 - $case: Case number of the leading case which has the judgement and opinion. "C-XXX/XX"
@@ -56,3 +55,5 @@ INFR(2017)2121
 INFR(2019)2076	
 INFR(2020)2182
 INFR(2017)2110
+
+
