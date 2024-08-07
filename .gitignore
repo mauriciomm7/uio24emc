@@ -8,3 +8,5 @@ NB_main_files
 *.zip
 *.csv
 *.parquet
+NB_
+dotenv.env
