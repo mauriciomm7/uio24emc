@@ -9,4 +9,5 @@ NB_main_files
 *.csv
 *.parquet
 NB_
-dotenv.env
+# Ignore .env file
+.env

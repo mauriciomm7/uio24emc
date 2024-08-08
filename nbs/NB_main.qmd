@@ -63,7 +63,7 @@ paths.figures_dir
 
 ```
 
-```{python}
+```{R}
 # # Specify the file path
 # file_path = "municipal_elections/oslo_fp.html"
 # # Read HTML content from the file
