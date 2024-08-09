@@ -11,3 +11,5 @@ NB_main_files
 NB_
 # Ignore .env file
 .env
+raw/appstxts
+raw/cleanappstxt

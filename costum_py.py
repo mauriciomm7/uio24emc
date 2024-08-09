@@ -41,3 +41,71 @@ def create_unique_id(row):
     return unique_id
 
 
+
+
+# # FUNCTION that returns calculates the set ratio of citations
+# # CREATE cols set_ratio_rephrase_avg
+# def set_ratio_rephrase(dataframe):
+# 	"""
+# 	In: UoM dataframe.
+# 	Requires: cols  'nat_citations', 'ecj_citations', 'iuropa_decision_id',
+# 	Out: SELF plus ['set_ratio_rephrase','set_ratio_rephrase_avg' ] 
+#     M = dataframe with case-application dyads 
+#     X = dataframe with question-case-application dyads
+#     j = iuropa_case_id
+#     X_n = temporary subset of X when j
+# 	"""
+# 	# copy data
+# 	X = dataframe.copy()
+# 	set_ratio_rephrase = []
+# 	set_ratio_rephrase_avg = []
+# 	for j in X['uoa_dyad_id']:
+# 		# SUBSET for decision j
+# 		mask_for_j = X['iuropa_decision_id'] == j
+# 		X_n = X[mask_for_j]
+# 		for index, row in X_n.iterrows():
+# 		set_ratio_citations =  set(row['nat_citations'])- (set(row['nat_citations'])-set(row['ecj_citations'])) / set(row['nat_citations'])
+# 		# Update 
+# 		X.at[i.index '`set_ratio_rephrase'] = set_ratio_citations
+# 	j_set_ratio_avg = X_n['set_ratio_citations'].mean()
+# 	X.loc[mask_for_j, 'set_ratio_rephrase_avg'] = j_set_ratio_avg
+# 	output = X
+# 	return(output)
+
+
+# set_ratio_reformulation = []
+# set_ratio_reformulation_avg = []
+
+
+# # [] Make into a function
+
+# for j in M:
+# 	mask_for_j = X['iuropa_case_id'] == j
+# 	X_n = X[mask_for_j]
+# 	for index, row in X_n.iterrows():
+# 		set_ratio_citations =  set(row['nat_citations'])- (set(row['nat_citations'])-set(row['ecj_citations'])) / set(row['nat_citations'])
+# 		 X.at[i.index '`set_ratio_citations'] = set_ratio_citations
+# 	j_set_ratio_avg = X_n['set_ratio_citations'].mean()
+# 	X.loc[mask_for_j, 'set_ratio_reformulation_avg'] = j_set_ratio_avg
+
+
+def extract_questions(file_content):
+    # Compile regex pattern to match "Question referred" or "Questions Referred"
+    pattern = re.compile(r"(Question referred|Questions Referred)\s*(.*?)(?=\n\n|\Z)", re.IGNORECASE | re.DOTALL)
+    
+    # Find all matches in the text
+    matches = pattern.findall(file_content)
+    
+    # Initialize list to store questions
+    questions = []
+    
+    # Process each match
+    for i, (heading, question) in enumerate(matches, start=1):
+        # Clean and split the question text
+        question = question.strip()
+        questions.append({"question_1": f"Question {i}", "question_txt": question})
+    
+    # Convert the list to a DataFrame
+    df = pd.DataFrame(questions)
+    
+    return df
